@@ -9,9 +9,9 @@ module.exports = async function (context, req) {
         port: 1433
     };
 
-    var id = context.bindingData.id;
+    var isbn = context.bindingData.isbn;
 
-    results = await queryDB("Select * from utilizadores where id_user=" + id)
+    results = await queryDB("Select * from livros where isbn=" + isbn)
         .catch(err => {
             console.log(err)
         });

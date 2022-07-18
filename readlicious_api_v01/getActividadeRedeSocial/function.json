@@ -9,7 +9,7 @@
         "get",
         "post"
       ],
-      "route":"utilizadores/{id:int?}"
+      "route":"actividades/{id:double?}"
     },
     {
       "type": "http",

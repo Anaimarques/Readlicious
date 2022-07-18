@@ -9,7 +9,7 @@
         "get",
         "post"
       ],
-      "route":"utilizadores/{id:int?}"
+      "route":"utilizadores/{id:int?}/bibliotecas"
     },
     {
       "type": "http",

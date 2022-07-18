@@ -9,7 +9,7 @@
         "get",
         "post"
       ],
-      "route":"utilizadores/{id:int?}"
+      "route":"utilizadores/{id:int?}/wishlists"
     },
     {
       "type": "http",

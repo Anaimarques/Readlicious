@@ -8,8 +8,8 @@
       "methods": [
         "get",
         "post"
-      ],
-      "route":"utilizadores/{id:int?}"
+      ], 
+      "route":"utilizadores/{id:double?}/actividades"
     },
     {
       "type": "http",

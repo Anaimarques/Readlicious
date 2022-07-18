@@ -9,7 +9,7 @@
         "get",
         "post"
       ],
-      "route":"utilizadores/{id:int?}"
+      "route":"livros/{isbn:double?}"
     },
     {
       "type": "http",
