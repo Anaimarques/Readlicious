@@ -1,7 +1,6 @@
 const sql = require('mssql');
 
 module.exports = async function (context, req) {
-
     const config = {
         user: 'readlicious_admin',
         password: 'Delicious4ever',
@@ -12,7 +11,7 @@ module.exports = async function (context, req) {
 
     var id = context.bindingData.id;
 
-    results = await queryDB("Select * from utilizadores where id_user=" + id)
+    results = await queryDB("Select * from actividade_rede_social where id_actividade in (Select actividade_secun from actividade2actividade where actividade_principal =" + id + ")")
         .catch(err => {
             console.log(err)
         });
@@ -33,4 +32,5 @@ module.exports = async function (context, req) {
         pool.close;
         return rows;
     }//sync function invocation
+
 }
