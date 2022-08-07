@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route":"livros/{id:double?}"
+      "route":"autor/{id:int?}/livros"
     },
     {
       "type": "http",

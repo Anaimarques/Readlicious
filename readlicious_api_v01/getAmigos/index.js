@@ -11,7 +11,7 @@ module.exports = async function (context, req) {
 
     var id = context.bindingData.id;
 
-    results = await queryDB("Select * from amigos where user1_id=" + id + " or user2_id=" + id)
+    results = await queryDB("Select * from utilizadores where id_user in (Select user2_id from amigos where user1_id=" + id + " union Select user1_id from amigos where user2_id=" + id + ")")
         .catch(err => {
             console.log(err)
         });

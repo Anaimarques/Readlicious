@@ -9,15 +9,17 @@ module.exports = async function (context, req) {
         port: 1433
     };
 
-    var isbn = context.bindingData.isbn;
+    var id = context.bindingData.id;
+    var status = 200;
 
-    results = await queryDB("Select * from livros where isbn=" + isbn)
+    results = await queryDB("Select * from livros where id_livro=" + id)
         .catch(err => {
             console.log(err)
+            status += 3    
         });
     console.log(results);
     context.res = {
-        //status: 200, /* Defaults to 200 */
+        status: status, /* Defaults to 200 */
         body: results
     };
 

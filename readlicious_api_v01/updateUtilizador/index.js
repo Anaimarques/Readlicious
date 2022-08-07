@@ -1,6 +1,8 @@
 const sql = require('mssql');
 
+
 module.exports = async function (context, req) {
+
     const config = {
         user: 'readlicious_admin',
         password: 'Delicious4ever',
@@ -9,17 +11,23 @@ module.exports = async function (context, req) {
         port: 1433
     };
 
-    var id = context.bindingData.id;
+    var body = req.body;
+
+    var response = '';
     var status = 200;
-    results = await queryDB("Select * from biblioteca_pessoal where user_id=" + id)
+
+    results = await queryDB(insert_query)
         .catch(err => {
             console.log(err)
             status += 3
+            response = 'Não foi possivel actualizar as informações.'
         });
-    console.log(results);
+
+
+    
     context.res = {
         status: status, /* Defaults to 200 */
-        body: results
+        body: response
     };
 
     async function queryDB(queryString) {
@@ -27,11 +35,13 @@ module.exports = async function (context, req) {
         let pool = await sql.connect(config);
         let data = await pool.request()
             .query(queryString);
-        for (let i = 0; i < data.rowsAffected; i++) {
-            rows.push(data.recordset[i]);
+        if (typeof data.recordset !== 'undefined') {
+            for (let i = 0; i < data.rowsAffected; i++) {
+                rows.push(data.recordset[i]);
+                console.log("index, data: " + i + ", " + data.recordset[i]);
+            }
         }
         pool.close;
         return rows;
     }//sync function invocation
-
 }

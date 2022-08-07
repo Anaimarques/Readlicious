@@ -1,0 +1,18 @@
+{
+    "signUp": {
+        "username": "string",
+        "nome": "string",
+        "apelido": "string",
+        "email": "string",
+        "empresa": "string",
+        "telefone": "int",
+        "nif": "int",
+        "distrito":"string",
+        "pais":"string",
+        "tipo_subscricao":"string",
+        "n_bibliotecas": "int",
+        "n_convites": "int",
+        "foto_perfil": "string",
+        "pass": "string"
+    }
+}

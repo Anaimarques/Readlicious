@@ -1,0 +1,11 @@
+{
+    "biblioInfo":{
+        "id_biblioteca":"int",
+        "user_id": "int",
+        "nome_biblioteca": "varchar(50)",
+        "genero_id":"int",
+        "descricao":"varchar(250)",
+        "data_criacao":"DATETIME",
+        "valor_biblioteca":"bigint"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "livroInfo":{
+        "id_livro":"bigint",
+        "isbn":"bigint",
+        "titulo":"varchar(200)",
+        "autor":"varchar(100)",
+        "editora":"varchar(100)",  
+        "nr_edicao":"smallint",
+        "ano_edicao":"int",
+        "nr_paginas":"smallint",
+        "idioma":"varchar(50)",
+        "capa":"varchar(200)",
+        "id_genero":"int",
+        "rating":"tinyint",
+        "notas":"varchar(250)",
+        "estado":"varchar(20)",
+        "preco":"float",
+        "id_biblioteca":"int"
+    }
+}

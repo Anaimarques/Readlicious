@@ -1,0 +1,6 @@
+{
+    "loginInput": {
+        "user_email": "string",
+        "pass":"string"
+    }
+}

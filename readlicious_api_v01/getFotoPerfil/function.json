@@ -6,9 +6,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get"
-      ],
-      "route":"livros/{id:double?}"
+        "get",
+        "post"
+      ]
     },
     {
       "type": "http",

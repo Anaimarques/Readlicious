@@ -10,15 +10,14 @@ module.exports = async function (context, req) {
     };
 
     var id = context.bindingData.id;
-    var status = 200;
-    results = await queryDB("Select * from biblioteca_pessoal where user_id=" + id)
+
+    results = await queryDB("Select foto_perfil from utilizadores where id_user=" + id)
         .catch(err => {
             console.log(err)
-            status += 3
         });
     console.log(results);
     context.res = {
-        status: status, /* Defaults to 200 */
+        //status: 200, /* Defaults to 200 */
         body: results
     };
 
@@ -33,5 +32,4 @@ module.exports = async function (context, req) {
         pool.close;
         return rows;
     }//sync function invocation
-
 }

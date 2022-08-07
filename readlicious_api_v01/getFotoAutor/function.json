@@ -6,9 +6,10 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get"
-      ],
-      "route":"livros/{id:double?}"
+        "get",
+        "post"
+      ], 
+      "route":"autor/{id:int?}/foto"
     },
     {
       "type": "http",

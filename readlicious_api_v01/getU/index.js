@@ -12,6 +12,9 @@ module.exports = async function (context, req) {
 
     var id = context.bindingData.id;
 
+    console.log("request: " + req.method);
+    if(req.method == "GET"){
+
     results = await queryDB("Select * from utilizadores where id_user=" + id)
         .catch(err => {
             console.log(err)
@@ -21,6 +24,20 @@ module.exports = async function (context, req) {
         //status: 200, /* Defaults to 200 */
         body: results
     };
+
+    }else if(req.method == "POST"){
+        var body = req.body
+        results = "";
+        console.log("auth: " + req.headers.authorization);
+        console.log("accept: " + req.headers.accept);
+    console.log(results);
+    context.res = {
+        //status: 200, /* Defaults to 200 */
+        body: results
+    };
+
+
+    }
 
     async function queryDB(queryString) {
         let rows = [];

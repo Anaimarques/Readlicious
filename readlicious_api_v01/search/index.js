@@ -10,27 +10,29 @@ module.exports = async function (context, req) {
     };
 
 
-    
+
     var tipoSearch = req.query.tipo;
     //console.log("tipo: " +tipoSearch);
     var quer = req.query.q;
     //console.log("quer: " +quer);
     var queryS = "";
 
-    if(tipoSearch == "utilizador"){
+    if (tipoSearch == "utilizador") {
         queryS = "Select * from utilizadores where username like '%" + quer + "%' or nome_e_apelido like '%" + quer + "%' or email like '%" + quer + "%'";
-    }else if(tipoSearch == "titulo"){
+    } else if (tipoSearch == "autor") {
+        queryS = "Select * from autor where nome like '%" + quer + "%' or apelido like '%" + quer + "%'";
+    } else if (tipoSearch == "titulo") {
         //console.log("chegou aqui 1!");
         queryS = "Select * from livros where titulo like '%" + quer + "%'";
-     }else if(tipoSearch == "isbn"){
+    } else if (tipoSearch == "isbn") {
         //console.log("chegou aqui 2!");
-            queryS = "Select * from livros where isbn like '%" + quer + "%'";
-     }else if(tipoSearch == "autor"){
+        queryS = "Select * from livros where isbn like '%" + quer + "%'";
+    } else if (tipoSearch == "livrosAutor") {
         //console.log("chegou aqui 3!");
-            queryS = "Select * from livros where isbn in (Select isbn from livros2autor where autor_id in (Select id_autor from autor where apelido like '%"+ quer +"%' or nome like '%" + quer + "%'))";
-     }
+        queryS = "Select * from livros where isbn in (Select isbn from livros2autor where autor_id in (Select id_autor from autor where apelido like '%" + quer + "%' or nome like '%" + quer + "%'))";
+    }
     console.log(queryS);
-    
+
     results = await queryDB(queryS)
         .catch(err => {
             console.log(err)
